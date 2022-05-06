@@ -75,7 +75,7 @@ index 24e53fa62c2c4a11494ad3d43f0c5a806930fcdd..9b691baa6cc90cc3f9ada307c43f44c4
    // Used by WebView to sample crashes without generating the unwanted dumps. If
    // the returned value is less than 100, crash dumping will be sampled to that
 diff --git a/components/crash/core/app/crashpad_linux.cc b/components/crash/core/app/crashpad_linux.cc
-index 32e2038e15adae14aa218a353f074cd6654bdc16..72bec9c08d7ec50257a86b0ee7173864d879d7d9 100644
+index 39fb479eba509f7ba1528cafecd1c6b21f3b0e76..a28b88d078560f05fa295f29dcf8b1865839285c 100644
 --- a/components/crash/core/app/crashpad_linux.cc
 +++ b/components/crash/core/app/crashpad_linux.cc
 @@ -170,6 +170,7 @@ bool PlatformCrashpadInitialization(

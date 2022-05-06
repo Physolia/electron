@@ -9,7 +9,7 @@ potentially prevent a window from being created.
 TODO(loc): this patch is currently broken.
 
 diff --git a/content/browser/renderer_host/render_frame_host_impl.cc b/content/browser/renderer_host/render_frame_host_impl.cc
-index aa0be995df8c2f9fa0d84922d30c7e1cdf9025c8..e588b460aa32b4c984d593ed54e10310b59ace9b 100644
+index 2e6c07a9952ad6ff143dc390c2a4bbccbf3dd5a4..a818d3d51c7d2d73595ef8ad3e1ed206171c334b 100644
 --- a/content/browser/renderer_host/render_frame_host_impl.cc
 +++ b/content/browser/renderer_host/render_frame_host_impl.cc
 @@ -6840,6 +6840,7 @@ void RenderFrameHostImpl::CreateNewWindow(
@@ -21,10 +21,10 @@ index aa0be995df8c2f9fa0d84922d30c7e1cdf9025c8..e588b460aa32b4c984d593ed54e10310
            &no_javascript_access);
  
 diff --git a/content/browser/web_contents/web_contents_impl.cc b/content/browser/web_contents/web_contents_impl.cc
-index 6da28755d61f8957b0e6b6d0f1e669c2dbb347fa..a96bb634eb5c5405abb62b88d576e5e3ed354caa 100644
+index 955e75710c63ef301cee2c555888fd533a3a202b..91dc5c54e741fe249ddaadf531f939413d703dc1 100644
 --- a/content/browser/web_contents/web_contents_impl.cc
 +++ b/content/browser/web_contents/web_contents_impl.cc
-@@ -3951,6 +3951,14 @@ FrameTree* WebContentsImpl::CreateNewWindow(
+@@ -3953,6 +3953,14 @@ FrameTree* WebContentsImpl::CreateNewWindow(
    }
    auto* new_contents_impl = new_contents.get();
  
@@ -39,7 +39,7 @@ index 6da28755d61f8957b0e6b6d0f1e669c2dbb347fa..a96bb634eb5c5405abb62b88d576e5e3
    new_contents_impl->GetController().SetSessionStorageNamespace(
        partition_config, session_storage_namespace);
  
-@@ -3995,12 +4003,6 @@ FrameTree* WebContentsImpl::CreateNewWindow(
+@@ -3997,12 +4005,6 @@ FrameTree* WebContentsImpl::CreateNewWindow(
      AddWebContentsDestructionObserver(new_contents_impl);
    }
  
@@ -102,7 +102,7 @@ index 7e22f3e0b84f3e6b1ef7b1c5176665b38bd53629..f6d98708c436447ee6c93acb5d476719
        bool opener_suppressed,
        bool* no_javascript_access);
 diff --git a/content/public/browser/web_contents_delegate.cc b/content/public/browser/web_contents_delegate.cc
-index 9bbc7cf6d9542a3f013313e0c497839da2beb9d1..c01e06b08b1cca7a663e30476a551904ce9c6db8 100644
+index daf9b4566396c6d681760329cf4ba6869bbb55e4..321d5cfc36e40f2a649e8ea5910f4082b71b62e1 100644
 --- a/content/public/browser/web_contents_delegate.cc
 +++ b/content/public/browser/web_contents_delegate.cc
 @@ -26,6 +26,17 @@ namespace content {
